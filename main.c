@@ -8,22 +8,22 @@
  * Return: 0 always.
  */
 
-int main(int argc, char **argv)
+int main(void)
 {
 	char *input_ptr;
 	size_t num = 0;
-	ssize_t shell_exit = 1;
+	ssize_t chars_num = 1;
+	char **arr;
 
-	(void)argc;
-	(void)argv;
-
-	while (shell_exit >= 0)
+	while (chars_num >= 0)
 	{
 		printf("$ ");
 
-		shell_exit = getline(&input_ptr, &num, stdin);
+		chars_num = getline(&input_ptr, &num, stdin);
 
 		printf("%s", input_ptr);
+
+		arr = get_args(chars_num, input_ptr);
 	}
 
 	free(input_ptr);
