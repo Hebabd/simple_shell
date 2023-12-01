@@ -12,15 +12,19 @@ int main(int argc, char **argv)
 {
 	char *input_ptr;
 	size_t num = 0;
+	ssize_t shell_exit = 1;
 
 	(void)argc;
 	(void)argv;
 
-	printf("$ ");
+	while (shell_exit >= 0)
+	{
+		printf("$ ");
 
-	getline(&input_ptr, &num, stdin);
+		shell_exit = getline(&input_ptr, &num, stdin);
 
-	printf("%s", input_ptr);
+		printf("%s", input_ptr);
+	}
 
 	free(input_ptr);
 
