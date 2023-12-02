@@ -9,7 +9,6 @@
 
 void print_env(const char *cmnd)
 {
-	extern char **environ;
 	char **env;
 
 	if (strcmp(cmnd, "env") == 0)
