@@ -22,7 +22,7 @@ int main(void)
 
 		chars_num = getline(&input_ptr, &num, stdin);
 
-		printf("%s, %ld", input_ptr, chars_num);
+		printf("%s", input_ptr);
 
 		if (chars_num > 1)
 		{
