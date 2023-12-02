@@ -15,7 +15,7 @@ int main(void)
 
 	while (chars_num >= 0)
 	{
-		printf("$ ");
+		_puts("$ ");
 		fflush(stdout);
 		chars_num = _getline(&input_ptr, &num, stdin);
 

@@ -21,7 +21,7 @@ char **get_args(ssize_t chars_num, char *input_ptr)
 		perror("hsh: memory allocation error");
 		return (NULL);
 	}
-	strcpy(cloned_ptr, input_ptr);
+	_strcpy(cloned_ptr, input_ptr);
 	str = _strtok(input_ptr, delimiter);
 	while (str)
 	{
@@ -41,7 +41,7 @@ char **get_args(ssize_t chars_num, char *input_ptr)
 			free(cloned_ptr);
 			return (NULL);
 		}
-		strcpy(argv[i], str);
+		_strcpy(argv[i], str);
 		str = _strtok(NULL, delimiter);
 	}
 	argv[i] = NULL;
