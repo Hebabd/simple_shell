@@ -22,7 +22,7 @@ char *_strtok(char *str, const char *delimiter);
 
 /* Main/Task Functions */
 char **get_args(ssize_t chars_num, char *input_ptr);
-void print_env(const char *cmnd);
+void print_env(char *cmnd);
 ssize_t _getline(char **inputptr, size_t *num, FILE *buff_type);
 
 #endif /* MAIN_H */

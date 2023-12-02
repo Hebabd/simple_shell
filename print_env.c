@@ -7,15 +7,24 @@
  * Return: Void.
  */
 
-void print_env(const char *cmnd)
+void print_env(char *cmnd)
 {
 	char **env;
 
 	if (strcmp(cmnd, "env") == 0)
 	{
 		for (env = environ; *env; env++)
-			printf("%s\n", *env);
+		{
+			_puts(*env);
+			_putchar('\n');
+		}
 	}
 	else
-		fprintf(stderr, "Command '%s' not found!\n", cmnd);
+	{
+		_puts("Command ");
+		_putchar('\'');
+		_puts(cmnd);
+		_putchar('\'');
+		_puts(" not found!\n");
+	}
 }
