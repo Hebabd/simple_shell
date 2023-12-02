@@ -11,6 +11,10 @@ extern char **environ;
 /* Memory Helpers */
 char *_memcpy(char *dest, char *src, unsigned int n);
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
+void free_arr(char **arr);
+
+/* String Helpers */
+char *_strtok(char *str, const char *delimiter);
 
 /* Main/Task Functions */
 char **get_args(ssize_t chars_num, char *input_ptr);

@@ -46,3 +46,19 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 
 	return (ptr);
 }
+
+/**
+ * free_arr - frees a given array.
+ * @arr: The given array.
+ *
+ * Return: Void.
+ */
+
+void free_arr(char **arr)
+{
+	int i;
+
+	for (i = 0; arr[i]; i++)
+		free(arr[i]);
+	free(arr);
+}

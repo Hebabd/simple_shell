@@ -10,7 +10,7 @@
 
 char **get_args(ssize_t chars_num, char *input_ptr)
 {
-	int i, j, str_num = 0;
+	int i, str_num = 0;
 	char *str, *cloned_ptr = NULL;
 	const char *delimiter = " \n";
 	char **argv;
@@ -22,29 +22,27 @@ char **get_args(ssize_t chars_num, char *input_ptr)
 		return (NULL);
 	}
 	strcpy(cloned_ptr, input_ptr);
-	str = strtok(input_ptr, delimiter);
+	str = _strtok(input_ptr, delimiter);
 	while (str)
 	{
 		str_num++;
-		str = strtok(NULL, delimiter);
+		str = _strtok(NULL, delimiter);
 	}
 	str_num++;
 	argv = malloc(sizeof(char *) * str_num);
-	str = strtok(cloned_ptr, delimiter);
+	str = _strtok(cloned_ptr, delimiter);
 	for (i = 0; str; i++)
 	{
 		argv[i] = malloc(sizeof(char) * (strlen(str) + 1));
 		if (argv[i] == NULL)
 		{
 			perror("hsh: memory allocation error");
-			for (j = 0; j < i; j++)
-				free(argv[j]);
-			free(argv);
+			free_arr(argv);
 			free(cloned_ptr);
 			return (NULL);
 		}
 		strcpy(argv[i], str);
-		str = strtok(NULL, delimiter);
+		str = _strtok(NULL, delimiter);
 	}
 	argv[i] = NULL;
 	free(cloned_ptr);

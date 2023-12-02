@@ -4,6 +4,7 @@
  * _getline - reads line input by user.
  * @input_ptr: The first pointer.
  * @num: The second pointer.
+ * @buff_type: Buffer stream type.
  *
  * Return: The number of characters read.
  */
@@ -32,7 +33,7 @@ ssize_t _getline(char **input_ptr, size_t *num, FILE *buff_type)
 
 	if (*num < input_len + 1 || *input_ptr == NULL)
 	{
-		*input_ptr = _realloc(*input_ptr, input_len,input_len + 1);
+		*input_ptr = _realloc(*input_ptr, input_len, input_len + 1);
 
 		if (*input_ptr == NULL)
 		{

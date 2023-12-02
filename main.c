@@ -12,7 +12,6 @@ int main(void)
 	size_t num = 0;
 	ssize_t chars_num = 1;
 	char **arr = NULL;
-	int i;
 
 	while (chars_num >= 0)
 	{
@@ -24,9 +23,7 @@ int main(void)
 		{
 			if (arr)
 			{
-				for (i = 0; arr[i]; i++)
-					free(arr[i]);
-				free(arr);
+				free_arr(arr);
 			}
 			arr = get_args(chars_num, input_ptr);
 			print_env(arr[0]);
@@ -39,9 +36,7 @@ int main(void)
 
 	if (arr)
 	{
-		for (i = 0; arr[i]; i++)
-			free(arr[i]);
-		free(arr);
+		free_arr(arr);
 	}
 
 	return (0);
