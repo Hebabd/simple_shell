@@ -2,8 +2,6 @@
 
 /**
  * main - entry point.
- * @argc: The number of arguments.
- * @argv: The pointer to the array of arguments.
  *
  * Return: 0 always.
  */
@@ -33,6 +31,7 @@ int main(void)
 				free(arr);
 			}
 			arr = get_args(chars_num, input_ptr);
+			print_env(arr[0]);
 		}
 		else if (chars_num < 1)
 			break;

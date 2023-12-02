@@ -6,5 +6,6 @@
 #include <string.h>
 
 char **get_args(ssize_t chars_num, char *input_ptr);
+void print_env(const char *cmnd);
 
 #endif /* MAIN_H */
