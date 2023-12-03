@@ -25,6 +25,7 @@ int main(void)
 			{
 				free_arr(arr);
 			}
+			chars_num = remove_comments(input_ptr);
 			arr = get_args(chars_num, input_ptr);
 			print_env(arr[0]);
 		}
