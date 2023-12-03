@@ -50,23 +50,46 @@ int _strlen(char *s)
 }
 
 /**
- * _strcpy - copies the string pointed to by src, including the
- * terminating null byte (\0), to the buffer pointed to by dest.
- * @dest: The given destination.
- * @src: The given source.
+ * _strchr - locates a character in a string.
+ * @s: The first pointer.
+ * @c: The second char.
  *
- * Return: The pointer to dest.
+ * Return: a pointer to the result.
  */
 
-char *_strcpy(char *dest, char *src)
+char *_strchr(char *s, char c)
 {
-	int i = 0, length = _strlen(src);
+	unsigned int i = 0;
 
-	while (i <= length)
+	while (s[i] != '\0')
 	{
-		dest[i] = src[i];
+		if (s[i] == c)
+			return (s + i);
 		i++;
 	}
 
-	return (dest);
+	if (s[i] == c)
+		return (s + i);
+	return (0);
 }
+
+/**
+ * _strcmp - appends the src string to the dest string.
+ * @s1: The first pointer.
+ * @s2: The second pointer.
+ *
+ * Return: a pointer to the resulting string dest.
+ */
+
+int _strcmp(char *s1, char *s2)
+{
+	int i = 0;
+
+	while (s1[i] != '\0' && s1[i] - s2[i] == 0)
+	{
+		i++;
+	}
+
+	return (s1[i] - s2[i]);
+}
+
