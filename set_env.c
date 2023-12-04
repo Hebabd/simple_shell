@@ -87,7 +87,6 @@ void set_env(char ***env, char *var, char *val)
 {
 	char **current_env = *env;
 	char *key, *eq, *curkey;
-	char **evo, *str;
 	size_t len;
 	int i;
 
@@ -99,22 +98,12 @@ void set_env(char ***env, char *var, char *val)
 		curkey = malloc(len + 1);
 		_strncpy(curkey, key, len);
 		curkey[len] = '\0';
-		printf("Hello from while loop in update env, %s, %s, %d\n", key, eq, _strcmp(curkey, var));
 		if (eq && _strcmp(curkey, var) == 0)
 		{
-			printf("Hello from if condition\n");
 			update_env(env, current_env, var, val);
 			return;
 		}
 	}
 
 	add_env(env, current_env, var, val);
-	evo = *env;
-
-	while (*evo)
-	{
-		str = *evo;
-		printf("%s", str);
-		evo++;
-	}
 }

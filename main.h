@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+#include <linux/limits.h>
 
 extern char **environ;
 
@@ -35,6 +36,8 @@ void set_env(char ***env, char *var, char *val);
 int get_index(char **env, char *var);
 char **remove_index(char **env, int index);
 int unset_env(char ***env, char *var);
+char *get_env(char **env, char *var);
+int _cd(char ***env, char **arr);
 ssize_t remove_comments(char *str);
 ssize_t _getline(char **inputptr, size_t *num, FILE *buff_type);
 

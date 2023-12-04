@@ -35,6 +35,8 @@ int main(void)
 				unset_env(&new_env, "PWD");
 				set_env(&new_env, "PWD", "Bitches!");
 			}
+			else if (_strcmp(arr[0], "cd") == 0)
+				_cd(&new_env, arr);
 		}
 		else if (chars_num < 1)
 			break;
