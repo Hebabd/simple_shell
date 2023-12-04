@@ -32,6 +32,9 @@ void print_env(char **temp_env, char *cmnd);
 void update_env(char ***env, char **current_env, char *var, char *val);
 void add_env(char ***env, char **current_env, char *var, char *val);
 void set_env(char ***env, char *var, char *val);
+int get_index(char **env, char *var);
+char **remove_index(char **env, int index);
+int unset_env(char ***env, char *var);
 ssize_t remove_comments(char *str);
 ssize_t _getline(char **inputptr, size_t *num, FILE *buff_type);
 

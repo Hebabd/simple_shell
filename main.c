@@ -32,7 +32,7 @@ int main(void)
 			print_env(new_env, arr[0]);
 			if (_strcmp(arr[0], "setenv") == 0)
 			{
-				set_env(&new_env, "Hallo", "Bitches!");
+				unset_env(&new_env, "PWD");
 				set_env(&new_env, "PWD", "Bitches!");
 			}
 		}
