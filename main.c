@@ -11,9 +11,10 @@ int main(void)
 	char *input_ptr = NULL;
 	size_t num = 0;
 	ssize_t chars_num = 1;
-	char **arr = NULL, **new_env;
+	char **arr = NULL, **new_env, **new_aliases;
 
 	new_env = initiate_env();
+	new_aliases = initiate_aliases();
 
 	while (chars_num >= 0)
 	{
@@ -40,6 +41,8 @@ int main(void)
 				unset_env(&new_env, arr[1]);
 			else if (_strcmp(arr[0], "cd") == 0)
 				_cd(&new_env, arr);
+			else if (_strcmp(arr[0], "alias") == 0)
+				_alias(&new_aliases, arr);
 		}
 		else if (chars_num < 1)
 			break;

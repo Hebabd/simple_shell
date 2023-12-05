@@ -9,12 +9,12 @@
 char **initiate_aliases()
 {
 
-	char *ex = "#alias='value/command'", **aliases = NULL;
+	char **aliases;
 
-	aliases[0] = _strdup(ex);
-	aliases[1] = NULL;
+	aliases = malloc(sizeof(char *) * (1 + MAX_NO));
 
-	free(ex);
+	aliases[0] = _strdup("alias_name='value'");
+	aliases[MAX_NO] = NULL;
 
 	return (aliases);
 }
@@ -29,28 +29,31 @@ char **initiate_aliases()
 
 void _alias(char ***aliases, char **arr)
 {
-	int exists1, exists2;
+	int index;
 	char **current_aliases = *aliases;
 
 	if (arr[0] && !arr[1])
 		print_env(current_aliases);
-	else if (arr[1] && arr[2])
+	else if (arr[1])
 	{
-		exists1 = get_index(current_aliases, arr[1]);
-		exists2 = get_index(current_aliases, arr[2]);
+		index = get_index(current_aliases, arr[1]);
 
-		if (exists1 != -1 && exists2 != -1)
+		if (index != -1)
 		{
-			_puts(get_env(current_aliases, arr[1]));
-			_putchar('\n');
-			_puts(get_env(current_aliases, arr[2]));
-			_putchar('\n');
+			if (arr[2])
+				update_env(aliases, current_aliases, arr[1], arr[2]);
+			else
+			{
+				_puts("alias ");
+				_puts(current_aliases[index]);
+				_putchar('\n');
+			}
 		}
-		else if (exists1 == -1 && exists2 == -1)
+		else if (index == -1)
 			add_env(aliases, current_aliases, arr[1], arr[2]);
-		else if (exists1 != -1)
-			update_env(aliases, current_aliases, arr[1], arr[2]);
 		else
+		{
 			perror("hsh");
+		}
 	}
 }
