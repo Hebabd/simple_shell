@@ -29,12 +29,15 @@ int main(void)
 			}
 			chars_num = remove_comments(input_ptr);
 			arr = get_args(chars_num, input_ptr);
-			print_env(new_env, arr[0]);
-			if (_strcmp(arr[0], "setenv") == 0)
+
+			if (_strcmp(arr[0], "env") == 0)
+				print_env(new_env);
+			else if (_strcmp(arr[0], "setenv") == 0)
 			{
-				unset_env(&new_env, "PWD");
-				set_env(&new_env, "PWD", "Bitches!");
+				set_env(&new_env, arr[1], arr[2]);
 			}
+			else if (_strcmp(arr[0], "unsetenv") == 0)
+				unset_env(&new_env, arr[1]);
 			else if (_strcmp(arr[0], "cd") == 0)
 				_cd(&new_env, arr);
 		}

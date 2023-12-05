@@ -7,6 +7,9 @@
 #include <unistd.h>
 #include <linux/limits.h>
 
+#define MAX_NO 20
+#define MAX_LEN 150
+
 extern char **environ;
 
 /* Memory Helpers */
@@ -26,10 +29,10 @@ char *_strncpy(char *dest, char *src, int n);
 char *_strdup(char *str);
 char *_strtok(char *str, const char *delimiter);
 
-/* Main/Task Functions */
+/* Main Tasks */
 char **get_args(ssize_t chars_num, char *input_ptr);
 char **initiate_env();
-void print_env(char **temp_env, char *cmnd);
+void print_env(char **temp_env);
 void update_env(char ***env, char **current_env, char *var, char *val);
 void add_env(char ***env, char **current_env, char *var, char *val);
 void set_env(char ***env, char *var, char *val);
@@ -38,6 +41,8 @@ char **remove_index(char **env, int index);
 int unset_env(char ***env, char *var);
 char *get_env(char **env, char *var);
 int _cd(char ***env, char **arr);
+char **initiate_aliases();
+void _alias(char ***aliases, char **arr);
 ssize_t remove_comments(char *str);
 ssize_t _getline(char **inputptr, size_t *num, FILE *buff_type);
 

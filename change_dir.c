@@ -60,9 +60,9 @@ int _cd(char ***env, char **arr)
 	else
 	{
 		getcwd(curcwd, sizeof(curcwd));
-		unset_env(env, "OLDPWD");
+		/*unset_env(env, "OLDPWD");*/
 		set_env(env, "OLDPWD", get_env(*env, "PWD"));
-		unset_env(env, "PWD");
+		/*unset_env(env, "PWD");*/
 		set_env(env, "PWD", curcwd);
 	}
 

@@ -12,9 +12,11 @@
 
 void update_env(char ***env, char **current_env, char *var, char *val)
 {
-	char *old = *current_env;
+	int index;
 	int len = 2 + _strlen(var) + _strlen(val);
 	char *new = malloc(sizeof(char) * len);
+
+	index = get_index(current_env, var);
 
 	if (!new)
 	{
@@ -26,9 +28,7 @@ void update_env(char ***env, char **current_env, char *var, char *val)
 	_strcat(new, "=");
 	_strcat(new, val);
 
-	free(old);
-
-	*current_env = new;
+	current_env[index] = new;
 	*env = current_env;
 }
 

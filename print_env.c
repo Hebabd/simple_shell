@@ -45,24 +45,13 @@ char **initiate_env()
  * Return: Void.
  */
 
-void print_env(char **temp_env, char *cmnd)
+void print_env(char **temp_env)
 {
 	char **env;
 
-	if (_strcmp(cmnd, "env") == 0)
+	for (env = temp_env; *env; env++)
 	{
-		for (env = temp_env; *env; env++)
-		{
-			_puts(*env);
-			_putchar('\n');
-		}
-	}
-	else
-	{
-		_puts("Command ");
-		_putchar('\'');
-		_puts(cmnd);
-		_putchar('\'');
-		_puts(" not found!\n");
+		_puts(*env);
+		_putchar('\n');
 	}
 }
