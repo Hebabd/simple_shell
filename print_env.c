@@ -39,7 +39,6 @@ char **initiate_env()
 
 /**
  * print_env - prints the current environment.
- * @cmnd: The given command.
  * @temp_env: The new env vars copied.
  *
  * Return: Void.

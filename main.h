@@ -8,7 +8,6 @@
 #include <linux/limits.h>
 
 #define MAX_NO 20
-#define MAX_LEN 150
 
 extern char **environ;
 
@@ -45,5 +44,6 @@ char **initiate_aliases();
 void _alias(char ***aliases, char **arr);
 ssize_t remove_comments(char *str);
 ssize_t _getline(char **inputptr, size_t *num, FILE *buff_type);
+void handle_builtin(char ***new_env, char ***new_aliases, char **arr);
 
 #endif /* MAIN_H */
