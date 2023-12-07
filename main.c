@@ -16,6 +16,8 @@ int main(void)
 	new_env = initiate_env();
 	new_aliases = initiate_aliases();
 
+	/*set_env(&new_env, "PATH", "/usr/bin");*/
+
 	while (chars_num >= 0)
 	{
 		_puts("$ ");
@@ -32,6 +34,7 @@ int main(void)
 			arr = get_args(chars_num, input_ptr);
 
 			handle_builtin(&new_env, &new_aliases, arr);
+			exec_cmnds(&new_env, arr);
 		}
 		else if (chars_num < 1)
 			break;
