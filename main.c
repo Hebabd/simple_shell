@@ -12,6 +12,7 @@ int main(void)
 	size_t num = 0;
 	ssize_t chars_num = 1;
 	char **arr = NULL, **new_env, **new_aliases;
+	int result;
 
 	new_env = initiate_env();
 	new_aliases = initiate_aliases();
@@ -33,8 +34,10 @@ int main(void)
 			chars_num = remove_comments(input_ptr);
 			arr = get_args(chars_num, input_ptr);
 
-			handle_builtin(&new_env, &new_aliases, arr);
-			exec_cmnds(&new_env, arr);
+			result = handle_builtin(&new_env, &new_aliases, arr);
+
+			if (result == 0)
+				exec_cmnds(&new_env, arr);
 		}
 		else if (chars_num < 1)
 			break;

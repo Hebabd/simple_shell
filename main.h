@@ -47,7 +47,7 @@ char **initiate_aliases();
 void _alias(char ***aliases, char **arr);
 ssize_t remove_comments(char *str);
 ssize_t _getline(char **inputptr, size_t *num, FILE *buff_type);
-void handle_builtin(char ***new_env, char ***new_aliases, char **arr);
+int handle_builtin(char ***new_env, char ***new_aliases, char **arr);
 void exec_cmnds(char ***new_env, char **arr);
 
 #endif /* MAIN_H */
