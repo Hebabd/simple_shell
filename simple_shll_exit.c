@@ -1,14 +1,16 @@
 #include "main.h"
 
 /**
- * _atoi : take a string str and converts it to integer.
- *sign : check for minus sign
- *Return : 0 it return 0 if an invalid character is encounterered
+ * _atoi : takes a string str and converts it to an nteger.
+ *sign : check for minus sign.
+ *Return : 0 if an invalid character is encounterered.
+ * *str : pointer of the input char array .
+ *
  */
 
 int _atoi(const  char *str)
 {
-	int re = 0;
+	int result = 0;
 	int sign = 1;
 	int i = 0;
 
@@ -30,24 +32,22 @@ int _atoi(const  char *str)
 		}
 	}
 
-
-
-
-
-	return (re * sign);
+	return (result * sign);
 }
 
 /**
- * _exit : to exit ommand with specified code.
- * by set the exit code to 0 by default
- * and check ifan exit code is provied as an argument.
- *_atoi : convert an argument exit code to an integer
+ * he_exit : Exit the command with specified code.
+ *By default, it  sets the exit code to 0
+ *and checks if ana exit code is provid as an argument
+ *
+ * _atoi : convert an argument exit code to an integer
  *
  */
 
-void _exit(char **arr)
+void he_exit(char **arr)
 {
 	int _exit = 0;
+
 	if (arr[1] != NULL)
 	{
 	_exit = _atoi(arr[1]);
