@@ -8,10 +8,9 @@
 
 int main(void)
 {
-	char *input_ptr = NULL;
+	char *input_ptr = NULL, **arr = NULL, **new_env, **new_aliases;
 	size_t num = 0;
 	ssize_t chars_num = 1;
-	char **arr = NULL, **new_env, **new_aliases;
 	int result;
 
 	new_env = initiate_env();
@@ -28,9 +27,7 @@ int main(void)
 		if (chars_num > 1)
 		{
 			if (arr)
-			{
 				free_arr(arr);
-			}
 			chars_num = remove_comments(input_ptr);
 			arr = get_args(chars_num, input_ptr);
 
@@ -46,9 +43,7 @@ int main(void)
 	free(input_ptr);
 
 	if (arr)
-	{
 		free_arr(arr);
-	}
 
 	return (0);
 }
