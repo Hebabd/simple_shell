@@ -37,8 +37,14 @@ int handle_builtin(char ***new_env, char ***new_aliases, char **arr)
 		return (1);
 	}
 	else if (_strcmp(arr[0], "exit") == 0)
-		/* Built-in Exit Fn Goes Here... */
-		exit(0);
+	{
+		int ex_status = 0;
+		if (arr[1] != NULL)
+			ex_status = _atoi(arr[1]);
+
+		exit(ex_status);
+	}
+	
 	else
 		return (0);
 }
