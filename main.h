@@ -29,6 +29,7 @@ char *_strcat(char *dest, char *src);
 char *_strcpy(char *dest, char *src);
 char *_strncpy(char *dest, char *src, int n);
 char *_strdup(char *str);
+int _atoi(const char *str);
 char *_strtok(char *str, const char *delimiter);
 
 /* Main Tasks */
@@ -49,5 +50,6 @@ ssize_t remove_comments(char *str);
 ssize_t _getline(char **inputptr, size_t *num, FILE *buff_type);
 int handle_builtin(char ***new_env, char ***new_aliases, char **arr);
 void exec_cmnds(char ***new_env, char **arr);
+void he_exit(char **arr);
 
 #endif /* MAIN_H */
