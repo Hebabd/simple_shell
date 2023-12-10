@@ -14,7 +14,7 @@ void exec_cmnds(char ***new_env, char **arr)
 	pid_t pid = fork();
 
 	cmnd = malloc(sizeof(char) * (_strlen(arr[0]) + _strlen("/usr/bin/")));
-	
+
 	if (!cmnd)
 	{
 		perror("malloc");
