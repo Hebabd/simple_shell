@@ -23,21 +23,13 @@ int main(void)
 		chars_num = _getline(&input_ptr, &num, stdin);
 		if (chars_num > 1)
 		{
-			if (arr)
-				free_arr(arr);
+			/*if (arr)
+				free_arr(arr);*/
 			separator = get_separator(input_ptr);
 			if (separator)
 			{
 				args = get_args(chars_num, input_ptr, separator);
-				while (*args)
-				{
-					chars_num = remove_comments(*args);
-					arr = get_args(chars_num, *args, " =\n");
-					result = handle_builtin(&new_env, &new_aliases, arr);
-					if (result == 0)
-						exec_cmnds(&new_env, arr);
-					args++;
-				}
+				handle_separator(&new_env, &new_aliases, args, arr, separator);
 			}
 			else
 			{
