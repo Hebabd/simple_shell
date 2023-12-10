@@ -30,10 +30,11 @@ char *_strcpy(char *dest, char *src);
 char *_strncpy(char *dest, char *src, int n);
 char *_strdup(char *str);
 int _atoi(const char *str);
+char *get_separator(char *str);
 char *_strtok(char *str, const char *delimiter);
 
 /* Main Tasks */
-char **get_args(ssize_t chars_num, char *input_ptr);
+char **get_args(ssize_t chars_num, char *input_ptr, const char *delimiter);
 char **initiate_env();
 void print_env(char **temp_env);
 void update_env(char ***env, char **current_env, char *var, char *val);

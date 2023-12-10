@@ -4,15 +4,15 @@
  * get_args - return the split arguments passed.
  * @chars_num: The number of passed chars.
  * @input_ptr: The str pointer.
+ * @delimiter: The given delimiter.
  *
  * Return: The split arguments.
  */
 
-char **get_args(ssize_t chars_num, char *input_ptr)
+char **get_args(ssize_t chars_num, char *input_ptr, const char *delimiter)
 {
 	int i, str_num = 0;
 	char *str, *cloned_ptr = NULL;
-	const char *delimiter = " =\n";
 	char **argv;
 
 	cloned_ptr = malloc(sizeof(char) * chars_num);
