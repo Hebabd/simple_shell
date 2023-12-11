@@ -38,11 +38,7 @@ int handle_builtin(char ***new_env, char ***new_aliases, char **arr)
 	}
 	else if (_strcmp(arr[0], "exit") == 0)
 	{
-		int ex_status = 0;
-		if (arr[1] != NULL)
-			ex_status = _atoi(arr[1]);
-
-		exit(ex_status);
+		exit(0);
 	}
 	
 	else
