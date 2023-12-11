@@ -110,3 +110,18 @@ char *_strdup(char *str)
 
 
 }
+
+/**
+ *  _isalpha - checks whether the parameter is a letter or not.
+ * @c: The parameter or character to be checked.
+ *
+ * Return: 1 if c is a letter whether it's lowercase or uppercase, 0 otherwise.
+ */
+
+int _isalpha(int c)
+{
+	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
+		return (1);
+	else
+		return (0);
+}

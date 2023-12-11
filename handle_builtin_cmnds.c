@@ -37,7 +37,7 @@ int handle_builtin(char ***new_env, char ***new_aliases, char **arr)
 		return (0);
 	}
 	else if (_strcmp(arr[0], "exit") == 0)
-		he_exit(arr);
+		exit(he_exit(arr));
 	else
 		return (-1);
 }

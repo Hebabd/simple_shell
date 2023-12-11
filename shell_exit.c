@@ -41,12 +41,28 @@ int _atoi(const char *str)
  * Return: Void.
  */
 
-void he_exit(char **arr)
+int he_exit(char **arr)
 {
-	int ex_status = 0;
+	int ex_status = 0, i;
 
 	if (arr[1] != NULL)
-		ex_status = _atoi(arr[1]);
+	{
+		for (i = 0; arr[1]; i++)
+		{
+			if (_isalpha(arr[1][i]) != 0)
+			{
+				_puts("-hsh: exit: ");
+				_puts(arr[1]);
+				_puts(": numeric argument required\n");
+				return (EXIT_FAILURE);
+			}
+			else
+			{
+				ex_status = _atoi(arr[1]);
+				return (ex_status);
+			}
+		}
+	}
 
-	exit(ex_status);
+	return(EXIT_SUCCESS);
 }
