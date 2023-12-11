@@ -47,7 +47,7 @@ void handle_semicolon(char ***new_env, char ***new_aliases,
 		arr = get_args(chars_num, *args, " =\n");
 		result = handle_builtin(new_env, new_aliases, arr);
 
-		if (result == 0)
+		if (result != 0)
 			exec_cmnds(new_env, arr);
 		args++;
 	}
@@ -76,10 +76,10 @@ void handle_AND(char ***new_env, char ***new_aliases,
 		arr = get_args(chars_num, *args, " =\n");
 		result = handle_builtin(new_env, new_aliases, arr);
 
-		if (result == 0)
+		if (result != 0)
 			result = exec_cmnds(new_env, arr);
 
-		if (result == 1)
+		if (result == 0)
 			args++;
 		else
 			break;
@@ -109,10 +109,10 @@ void handle_OR(char ***new_env, char ***new_aliases,
 		arr = get_args(chars_num, *args, " =\n");
 		result = handle_builtin(new_env, new_aliases, arr);
 
-		if (result == 0)
+		if (result != 0)
 			result = exec_cmnds(new_env, arr);
 
-		if (result == 0)
+		if (result != 0)
 			args++;
 		else
 			break;

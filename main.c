@@ -36,7 +36,7 @@ int main(void)
 				chars_num = remove_comments(input_ptr);
 				arr = get_args(chars_num, input_ptr, " =\n");
 				result = handle_builtin(&new_env, &new_aliases, arr);
-				if (result == 0)
+				if (result != 0)
 					exec_cmnds(&new_env, arr);
 			}
 		}

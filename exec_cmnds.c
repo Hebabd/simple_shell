@@ -10,7 +10,7 @@
 
 int exec_cmnds(char ***new_env, char **arr)
 {
-	int value = 1;
+	int value;
 	char *cmnd;
 	pid_t pid = fork();
 
@@ -31,7 +31,7 @@ int exec_cmnds(char ***new_env, char **arr)
 		{
 			execve(cmnd, arr, *new_env);
 			perror("Command execution failed");
-			/*exit(EXIT_FAILURE);*/
+			exit(EXIT_FAILURE);
 		}
 		else
 		{
@@ -42,11 +42,14 @@ int exec_cmnds(char ***new_env, char **arr)
 	}
 	else if (pid > 0)
 	{
-		wait(NULL);
+		/*wait(NULL);*/
+		waitpid(pid, &value, 0);
+		return (WEXITSTATUS(value));
 	}
 	else
 	{
 		perror("Fork failed");
+		return (-1);
 	}
 
 	free(cmnd);
