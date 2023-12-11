@@ -5,11 +5,12 @@
  * @arr: The given array of args.
  * @new_env: The given env vars array.
  *
- * Return: Void.
+ * Return: Int.
  */
 
-void exec_cmnds(char ***new_env, char **arr)
+int exec_cmnds(char ***new_env, char **arr)
 {
+	int value;
 	char *cmnd;
 	pid_t pid = fork();
 
@@ -35,13 +36,23 @@ void exec_cmnds(char ***new_env, char **arr)
 		else
 		{
 			perror("hsh");
+			value = 0;
 			exit(EXIT_FAILURE);
 		}
 	}
 	else if (pid > 0)
-		wait(NULL);
+	{
+		/*wait(NULL);*/
+		waitpid(pid, &value, 0);
+		return (WEXITSTATUS(value));
+	}
 	else
+	{
 		perror("Fork failed");
+		return (-1);
+	}
 
 	free(cmnd);
+
+	return (value);
 }
