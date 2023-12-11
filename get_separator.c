@@ -30,7 +30,6 @@ char *get_separator(char *str)
  * @new_aliases: Teh given aliases array.
  * @args: The given array of separated commands.
  * @arr: The given array of individual commands.
- * @separator: The given separator.
  *
  * Return: Void.
  */
@@ -45,10 +44,11 @@ void handle_semicolon(char ***new_env, char ***new_aliases,
 	{
 		chars_num = remove_comments(*args);
 		arr = get_args(chars_num, *args, " =\n");
+		handle_vars(new_env, arr, result);
 		result = handle_builtin(new_env, new_aliases, arr);
 
 		if (result != 0)
-			exec_cmnds(new_env, arr);
+			result = exec_cmnds(new_env, arr);
 		args++;
 	}
 }
@@ -59,7 +59,6 @@ void handle_semicolon(char ***new_env, char ***new_aliases,
  * @new_aliases: Teh given aliases array.
  * @args: The given array of separated commands.
  * @arr: The given array of individual commands.
- * @separator: The given separator.
  *
  * Return: Void.
  */
@@ -74,6 +73,7 @@ void handle_AND(char ***new_env, char ***new_aliases,
 	{
 		chars_num = remove_comments(*args);
 		arr = get_args(chars_num, *args, " =\n");
+		handle_vars(new_env, arr, result);
 		result = handle_builtin(new_env, new_aliases, arr);
 
 		if (result != 0)
@@ -92,7 +92,6 @@ void handle_AND(char ***new_env, char ***new_aliases,
  * @new_aliases: Teh given aliases array.
  * @args: The given array of separated commands.
  * @arr: The given array of individual commands.
- * @separator: The given separator.
  *
  * Return: Void.
  */
@@ -107,6 +106,7 @@ void handle_OR(char ***new_env, char ***new_aliases,
 	{
 		chars_num = remove_comments(*args);
 		arr = get_args(chars_num, *args, " =\n");
+		handle_vars(new_env, arr, result);
 		result = handle_builtin(new_env, new_aliases, arr);
 
 		if (result != 0)

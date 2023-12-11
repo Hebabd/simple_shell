@@ -31,6 +31,8 @@ char *_strncpy(char *dest, char *src, int n);
 char *_strdup(char *str);
 int _atoi(const char *str);
 int _isalpha(int c);
+void rev_string(char *s);
+char *_itoa(int n);
 char *_strtok(char *str, const char *delimiter);
 
 /* Main Tasks */
@@ -52,6 +54,7 @@ ssize_t _getline(char **inputptr, size_t *num, FILE *buff_type);
 int handle_builtin(char ***new_env, char ***new_aliases, char **arr);
 int exec_cmnds(char ***new_env, char **arr);
 int he_exit(char **arr);
+void handle_vars(char ***new_env, char **arr, int ex_status);
 char *get_separator(char *str);
 void handle_semicolon(char ***new_env, char ***new_aliases,
 		char **args, char **arr);

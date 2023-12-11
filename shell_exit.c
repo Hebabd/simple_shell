@@ -64,5 +64,5 @@ int he_exit(char **arr)
 		}
 	}
 
-	return(EXIT_SUCCESS);
+	return (EXIT_SUCCESS);
 }

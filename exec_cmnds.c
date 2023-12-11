@@ -15,16 +15,13 @@ int exec_cmnds(char ***new_env, char **arr)
 	pid_t pid = fork();
 
 	cmnd = malloc(sizeof(char) * (_strlen(arr[0]) + _strlen("/usr/bin/")));
-
 	if (!cmnd)
 	{
 		perror("malloc");
 		exit(EXIT_FAILURE);
 	}
-
 	_strcpy(cmnd, "/usr/bin/");
 	_strcat(cmnd, arr[0]);
-
 	if (pid == 0)
 	{
 		if (access(cmnd, X_OK) == 0)
@@ -51,8 +48,6 @@ int exec_cmnds(char ***new_env, char **arr)
 		perror("Fork failed");
 		return (-1);
 	}
-
 	free(cmnd);
-
 	return (value);
 }

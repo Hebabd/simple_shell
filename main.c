@@ -12,7 +12,7 @@ int main(void)
 	char **arr = NULL, **args, **new_env, **new_aliases;
 	size_t num = 0;
 	ssize_t chars_num = 1;
-	int result;
+	int result = 0;
 
 	new_env = initiate_env();
 	new_aliases = initiate_aliases();
@@ -23,8 +23,8 @@ int main(void)
 		chars_num = _getline(&input_ptr, &num, stdin);
 		if (chars_num > 1)
 		{
-			/*if (arr)
-				free_arr(arr);*/
+			/*if (arr)*/
+				/*free_arr(arr);*/
 			separator = get_separator(input_ptr);
 			if (separator)
 			{
@@ -35,9 +35,10 @@ int main(void)
 			{
 				chars_num = remove_comments(input_ptr);
 				arr = get_args(chars_num, input_ptr, " =\n");
+				handle_vars(&new_env, arr, result);
 				result = handle_builtin(&new_env, &new_aliases, arr);
 				if (result != 0)
-					exec_cmnds(&new_env, arr);
+					result = exec_cmnds(&new_env, arr);
 			}
 		}
 		else if (chars_num < 1)
