@@ -28,7 +28,8 @@ void update_env(char ***env, char **current_env, char *var, char *val)
 	_strcat(new, "=");
 	_strcat(new, val);
 
-	current_env[index] = new;
+	current_env[index] = _strdup(new);
+	free(new);
 	*env = current_env;
 }
 

@@ -50,9 +50,8 @@ void handle_semicolon(char ***new_env, char ***new_aliases,
 		if (result != 0)
 			result = exec_cmnds(new_env, arr);
 		args++;
+		free_arr(arr);
 	}
-
-	free_arr(arr);
 }
 
 /**
@@ -84,10 +83,12 @@ void handle_AND(char ***new_env, char ***new_aliases,
 		if (result == 0)
 			args++;
 		else
+		{
+			free_arr(arr);
 			break;
+		}
+		free_arr(arr);
 	}
-
-	free_arr(arr);
 }
 
 /**
@@ -119,10 +120,12 @@ void handle_OR(char ***new_env, char ***new_aliases,
 		if (result != 0)
 			args++;
 		else
+		{
+			free_arr(arr);
 			break;
+		}
+		free_arr(arr);
 	}
-
-	free_arr(arr);
 }
 
 /**
@@ -146,4 +149,5 @@ void handle_separator(char ***new_env, char ***new_aliases,
 
 	else if (_strcmp(separator, "||") == 0)
 		handle_OR(new_env, new_aliases, args, arr);
+	free_arr(args);
 }

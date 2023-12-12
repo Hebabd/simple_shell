@@ -9,7 +9,7 @@
 int main(void)
 {
 	char *input_ptr = NULL, *separator;
-	char **arr = NULL, **args, **new_env, **new_aliases;
+	char **arr, **args, **new_env, **new_aliases;
 	size_t num = 0;
 	ssize_t chars_num = 1;
 	int result = 0;
@@ -31,21 +31,20 @@ int main(void)
 			}
 			else
 			{
-				free_arr(arr);
 				chars_num = remove_comments(input_ptr);
 				arr = get_args(chars_num, input_ptr, " =\n");
 				handle_vars(&new_env, arr, result);
 				result = handle_builtin(&new_env, &new_aliases, arr);
 				if (result != 0)
 					result = exec_cmnds(&new_env, arr);
+				free_arr(arr);
 			}
 		}
 		else if (chars_num < 1)
 			break;
 	}
 	free(input_ptr);
-	free_arr(arr);
-	free(new_env);
-	free(new_aliases);
+	free_arr(new_env);
+	free_arr(new_aliases);
 	return (0);
 }
