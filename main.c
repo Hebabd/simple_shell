@@ -23,8 +23,6 @@ int main(void)
 		chars_num = _getline(&input_ptr, &num, stdin);
 		if (chars_num > 1)
 		{
-			/*if (arr)*/
-				/*free_arr(arr);*/
 			separator = get_separator(input_ptr);
 			if (separator)
 			{
@@ -33,6 +31,7 @@ int main(void)
 			}
 			else
 			{
+				/*free_arr(arr);*/
 				chars_num = remove_comments(input_ptr);
 				arr = get_args(chars_num, input_ptr, " =\n");
 				handle_vars(&new_env, arr, result);

@@ -18,6 +18,7 @@ extern char **environ;
 char *_memcpy(char *dest, char *src, unsigned int n);
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 void free_arr(char **arr);
+void free_str(char *str);
 
 /* String Helpers */
 int _putchar(char c);

@@ -58,7 +58,23 @@ void free_arr(char **arr)
 {
 	int i;
 
-	for (i = 0; arr[i]; i++)
-		free(arr[i]);
-	free(arr);
+	if (arr)
+	{
+		for (i = 0; arr[i]; i++)
+			free(arr[i]);
+		free(arr);
+	}
+}
+
+/**
+ * free_str - frees a given string.
+ * @str: The given string.
+ *
+ * Return: Void.
+ */
+
+void free_str(char *str)
+{
+	if (str)
+		free(str);
 }
