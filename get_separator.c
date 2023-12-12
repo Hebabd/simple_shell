@@ -51,6 +51,8 @@ void handle_semicolon(char ***new_env, char ***new_aliases,
 			result = exec_cmnds(new_env, arr);
 		args++;
 	}
+
+	free_arr(arr);
 }
 
 /**
@@ -84,6 +86,8 @@ void handle_AND(char ***new_env, char ***new_aliases,
 		else
 			break;
 	}
+
+	free_arr(arr);
 }
 
 /**
@@ -117,6 +121,8 @@ void handle_OR(char ***new_env, char ***new_aliases,
 		else
 			break;
 	}
+
+	free_arr(arr);
 }
 
 /**

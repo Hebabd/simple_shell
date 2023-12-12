@@ -10,7 +10,7 @@
 
 int exec_cmnds(char ***new_env, char **arr)
 {
-	int value;
+	int value = 0;
 	char *cmnd;
 	pid_t pid = fork();
 
@@ -34,7 +34,6 @@ int exec_cmnds(char ***new_env, char **arr)
 		else
 		{
 			perror("hsh");
-			value = 0;
 			free(cmnd);
 			exit(EXIT_FAILURE);
 		}

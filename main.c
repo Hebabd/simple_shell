@@ -31,7 +31,7 @@ int main(void)
 			}
 			else
 			{
-				/*free_arr(arr);*/
+				free_arr(arr);
 				chars_num = remove_comments(input_ptr);
 				arr = get_args(chars_num, input_ptr, " =\n");
 				handle_vars(&new_env, arr, result);
@@ -44,7 +44,8 @@ int main(void)
 			break;
 	}
 	free(input_ptr);
-	if (arr)
-		free_arr(arr);
+	free_arr(arr);
+	free(new_env);
+	free(new_aliases);
 	return (0);
 }

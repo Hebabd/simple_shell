@@ -43,26 +43,35 @@ char *get_env(char **env, char *var)
 int _cd(char ***env, char **arr)
 {
 	int result;
-	char curcwd[PATH_MAX];
+	char curcwd[PATH_MAX], *env_var;
 
 	if (!arr[1])
-		result = chdir(get_env(*env, "HOME"));
+	{
+		env_var = get_env(*env, "HOME");
+		result = chdir(env_var);
+	}
 	else if (_strcmp(arr[1], "-") == 0)
-		result = chdir(get_env(*env, "OLDPWD"));
+	{
+		env_var = get_env(*env, "OLDPWD");
+		result = chdir(env_var);
+	}
 	else
 		result = chdir(arr[1]);
 
 	if (result == -1)
 	{
 		perror("hsh");
+		free(env_var);
 		return (-1);
 	}
 	else
 	{
+		env_var = get_env(*env, "PWD");
 		getcwd(curcwd, sizeof(curcwd));
-		set_env(env, "OLDPWD", get_env(*env, "PWD"));
+		set_env(env, "OLDPWD", env_var);
 		set_env(env, "PWD", curcwd);
 	}
 
+	free(env_var);
 	return (0);
 }
