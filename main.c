@@ -18,7 +18,7 @@ int main(void)
 	new_aliases = initiate_aliases();
 	while (chars_num >= 0)
 	{
-		_puts("$ ");
+		/*_puts("$ ");*/
 		fflush(stdout);
 		chars_num = _getline(&input_ptr, &num, stdin);
 		if (chars_num > 1)
