@@ -9,12 +9,15 @@
 char **initiate_aliases()
 {
 
-	char **aliases;
+	char **aliases = NULL;
 
-	aliases = malloc(sizeof(char *) * (1 + MAX_NO));
+	aliases = malloc(sizeof(char *) /** (1 + MAX_NO)*/);
+
+	if (!aliases)
+		return (NULL);
 
 	aliases[0] = _strdup("alias_name='value'");
-	aliases[MAX_NO] = NULL;
+	aliases[1] = NULL;
 
 	return (aliases);
 }
