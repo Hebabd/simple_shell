@@ -16,13 +16,13 @@ int exec_cmnds(char ***new_env, char **arr)
 
 	if (pid == 0)
 	{
-		cmnd = malloc(sizeof(char) * (_strlen(arr[0]) + _strlen("/usr/bin/")));
+		cmnd = malloc(sizeof(char) * (_strlen(arr[0]) + _strlen("/usr")));
 		if (!cmnd)
 		{
 			perror("malloc");
 			exit(EXIT_FAILURE);
 		}
-		_strcpy(cmnd, "/usr/bin/");
+		_strcpy(cmnd, "/usr");
 		_strcat(cmnd, arr[0]);
 		if (access(cmnd, X_OK) == 0)
 		{
