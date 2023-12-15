@@ -42,7 +42,6 @@ char *_strstr(char *haystack, char *needle)
 /**
  * check_path - handles and executes non-builtin commands.
  * @arr: The given array of args.
- * @cmnd: The given command string.
  *
  * Return: Char.
  */
