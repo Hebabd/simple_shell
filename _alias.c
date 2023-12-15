@@ -11,7 +11,7 @@ char **initiate_aliases()
 
 	char **aliases = NULL;
 
-	aliases = malloc(sizeof(char *) /** (1 + MAX_NO)*/);
+	aliases = malloc(sizeof(char *) * 2/** (1 + MAX_NO)*/);
 
 	if (!aliases)
 		return (NULL);
