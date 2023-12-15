@@ -34,6 +34,7 @@ int _atoi(const char *str);
 int _isalpha(int c);
 void rev_string(char *s);
 char *_itoa(int n);
+char *_strstr(char *haystack, char *needle);
 char *_strtok(char *str, const char *delimiter);
 
 /* Main Tasks */
@@ -53,6 +54,7 @@ void _alias(char ***aliases, char **arr);
 ssize_t remove_comments(char *str);
 ssize_t _getline(char **inputptr, size_t *num, FILE *buff_type);
 int handle_builtin(char ***new_env, char ***new_aliases, char **arr);
+char *check_path(char **arr);
 int exec_cmnds(char ***new_env, char **arr);
 int he_exit(char **arr);
 void handle_vars(char ***new_env, char **arr, int ex_status);
